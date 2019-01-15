@@ -138,11 +138,11 @@ tags:
 %   qrcode: true
 % fonts:
 %   global: Noto Sans CJK SC
-%   reference: ~
+%   reference: Noto Sans CJK SC
 % ---
 ```
 
-在对Tex模板文件进行解析时，其YAML Front必须位于文件头部。我们通过判断第一行是否为`% ---`判断文件头开始，并逐步向下解析文件，并依次取出文件头部的`%`，直至再次遇到`% ---`。将去除`%`后的字符串丢给PyYAML进行解析得到默认配置字典。
+在对Tex模板文件进行解析时，其YAML Front必须位于文件头部。我们通过判断第一行是否为`% ---`判断文件头开始，并逐步向下解析文件，并依次取出文件头部的`%`，直至再次遇到`% ---`。将去除`%`后的字符串丢给PyYAML进行解析得到默认配置。
 
 接下来，模板引擎对传入的`data -> {'raw': [data1, ..., dataN]}`进行切片，分别对每一个数据切片渲染一个页面。这里不要使用Jinja的`slice`函数，其实质上是将数据均分为N份。
 
@@ -163,7 +163,7 @@ tags:
 
 # 后记
 
-到目前为止，我们构建了一个简单的手写字符采集表，其全部代码见仓库 @wkyo/handwritten-character-acquisition
+到目前为止，我们构建了一个简单的手写字符采集表，其全部代码见仓库 [wkyo/handwritten-character-acquisition][repo]
 
 
 [MacTex]: http://www.mactex.com/
@@ -172,3 +172,4 @@ tags:
 [CTex]: http://www.ctex.org/HomePage
 [TeXLive-201804-USTC]: https://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/texlive2018-20180414.iso
 [Jinja]: http://jinja.pocoo.org/
+[repo]: https://github.com/wkyo/handwritten-character-acquisition
