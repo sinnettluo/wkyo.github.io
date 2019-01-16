@@ -3,7 +3,7 @@ layout: post
 title: "手写字符采集：采集表生成"
 date: 2019-01-13 20:50:06 +8000
 categries:
-    - 文本检测与识别
+    - NLP
 tags:
     - LaTex
     - Python
