@@ -1,0 +1,91 @@
+/**
+ * Custom Posts
+ */
+
+.post-content {
+
+    $section-start: 1;
+    $section-current: $section-start;
+    $section-header: post-header-lv;
+
+    @mixin auto-index() {
+        $section-next: $section-current + 1;
+        // $section-prefix: post-header-lv !default;
+        // counter-increment: $section-prefix"-"$section-current;
+        counter-increment: ($section-header)-($section-current);
+        counter-reset: ($section-header)-($section-next);
+
+        &::before {
+            // $section-prefix: "";
+            $items: "";
+
+            @for $x from $section-start through $section-current {
+                @if $items !="" {
+                    $items: $items + "\".\"";
+                }
+
+                $items: $items+"counter(#{$section-header}-#{$x})";
+            }
+
+            content: unquote($items);
+            padding-right: 0.5em;
+        }
+
+        $section-current: $section-next;
+    }
+
+    margin-bottom: $spacing-unit;
+    counter-reset: ($section-header)-($section-start);
+
+    >p {
+        text-indent: 2em;
+
+        >img {
+            margin: auto;
+            display: block;
+        }
+    }
+
+    h1 {
+        @include relative-font-size(2);
+
+        @include media-query($on-laptop) {
+            @include relative-font-size(1.75);
+        }
+
+        @include auto-index();
+
+        border-bottom: rgba($color: $grey-color, $alpha: 0.6) 3px solid;
+    }
+
+    h2 {
+        @include relative-font-size(1.625);
+
+        @include media-query($on-laptop) {
+            @include relative-font-size(1.375);
+        }
+
+        @include auto-index();
+    }
+
+    h3 {
+        @include relative-font-size(1.25);
+
+        @include media-query($on-laptop) {
+            @include relative-font-size(1.125);
+        }
+    }
+
+    h4 {
+        @include relative-font-size(1.15);
+
+        @include media-query($on-laptop) {
+            @include relative-font-size(1.075);
+        }
+    }
+
+    h5,
+    h6 {
+        @include relative-font-size(1);
+    }
+}
