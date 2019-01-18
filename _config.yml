@@ -5,9 +5,17 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  wkyo
+lang: zh_CN
+timezone: Asia/Shanghai
 
 # Build settings
 markdown: kramdown
+kramdown:
+  auto_id_prefix: post-
+  math_engine: katex
+  # math_engine_opts: {}
+latex:
+  engine: katex
 #theme: minima
 plugins:
   - jekyll-feed
@@ -20,6 +28,7 @@ plugins:
 # comment system
 livere_uid: MTAyMC80MjE2My8xODcxMA==
 show_excerpts: true
+permalink: /post/:title.html
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

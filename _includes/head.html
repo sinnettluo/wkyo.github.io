@@ -4,8 +4,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}
+  {%- endif -%}
+  <!-- Favicon head tag -->
+  <link rel="icon" href="{{ "/favicon.ico" | relative_url }}" type="image/x-icon" />
+  <!-- JQuery -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  {%- if site.latex.engine == "katex" -%}
+    {%- include thirdparty/math-katex.html -%}
   {%- endif -%}
 </head>

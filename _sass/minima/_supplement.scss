@@ -2,6 +2,38 @@
  * Custom Posts
  */
 
+.post-title {
+    text-align: center;
+}
+
+.post-meta {
+    ul {
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+}
+
+.post-meta-item {
+    margin: 1px 5px;
+    padding: 1px 5px;
+    display: inline-block;
+    border: rgba($color: $grey-color, $alpha: 0.4) 1px solid;
+    border-radius: 5px;
+
+    i {
+        margin-right: 0.2em;
+    }
+
+    a {
+        color: inherit;
+    }
+}
+
 .post-content {
 
     $section-start: 1;
@@ -10,8 +42,7 @@
 
     @mixin auto-index() {
         $section-next: $section-current + 1;
-        // $section-prefix: post-header-lv !default;
-        // counter-increment: $section-prefix"-"$section-current;
+
         counter-increment: ($section-header)-($section-current);
         counter-reset: ($section-header)-($section-next);
 
@@ -39,6 +70,13 @@
 
     >p {
         text-indent: 2em;
+
+        &:first-child {
+            color: grey;
+            border: rgba(0, 0, 0, 0.1) 1px solid;
+            padding: 1em;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        }
 
         >img {
             margin: auto;
@@ -74,6 +112,8 @@
         @include media-query($on-laptop) {
             @include relative-font-size(1.125);
         }
+
+        @include auto-index();
     }
 
     h4 {
@@ -82,10 +122,51 @@
         @include media-query($on-laptop) {
             @include relative-font-size(1.075);
         }
+
+        @include auto-index();
     }
 
     h5,
     h6 {
         @include relative-font-size(1);
     }
+}
+
+/**
+ * Squeeze Posts Block
+ */
+
+.archive-title {
+    text-align: center;
+}
+
+.tag-cloud {
+    @include relative-font-size(0.8);
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+}
+
+.post-tag {
+    color: #FFF;
+    background: rgba($color: red, $alpha: .6);
+    padding: 0.2em 0.5em;
+    margin: 0.5em 0.5em;
+    border-radius: 0.2em;
+    display: inline-block;
+
+    a {
+        color: inherit;
+        display: inline;
+    }
+}
+
+.section-seperator {
+    margin: 2em 1em;
 }

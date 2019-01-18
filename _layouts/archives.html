@@ -1,0 +1,50 @@
+---
+layout: page
+---
+
+{{ content }}
+
+{%- if page.archive == 'tags' or page.archive == 'categories' -%}
+<div class="tag-cloud">
+    {%- if page.archive == 'tags' -%}
+    {%- assign tags = site.tags -%}
+    {%- else -%}
+    {%- assign tags = site.categories -%}
+    {%- endif -%}
+    <ul>
+        {%- for tag in tags -%}
+        <li class="post-tag">
+            <a href="#post-tag-{{ tag.first | replace: ' ', '-' }}">{{ tag.first | capitalize }}</a>
+            <span>{{ tag.last | size }}</span>
+        </li>
+        {%- endfor -%}
+    </ul>
+</div>
+<hr class="section-seperator" />
+{%- for tag in tags -%}
+{%- if tag.last.size > 0 -%}
+<div class="tag-posts">
+    <div>
+        <span class="post-tag">{{ tag.first | capitalize }}</span>
+    </div>
+    <ul>
+        {%- for post in tag.last -%}
+        <li id="post-tag-{{ tag.first | replace: ' ', '-' }}">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d %H:%M' }}</time>
+            <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </li>
+        {%- endfor -%}
+    </ul>
+</div>
+{%- endif -%}
+{%- endfor -%}
+{%- else -%}
+<ul>
+    {%- for post in site.posts -%}
+    <li>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d %H:%M' }}</time>
+        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+    </li>
+    {%- endfor -%}
+</ul>
+{%- endif -%}
