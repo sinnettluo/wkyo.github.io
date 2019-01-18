@@ -1,12 +1,15 @@
 ---
 layout: post
-title: "手写字符采集：采集表生成"
+title: 使用LaTex与Python制作手写字符采集表
 date: 2019-01-13 20:50:06 +8000
-categries:
-    - NLP
+update: 2019-01-16 09:42:35 +8000
+categories:
+    - computer vision
 tags:
-    - LaTex
-    - Python
+    - collection table
+    - character collection
+    - python
+    - latex
 ---
 
 对一种文字脱机手写字符识别，通常需要准备大量的手写样本来进行特征提取与训练。对于使用范围较广的文字而言，数据的获取比较简单，通常在网上就能直接找到比较成熟的手写数据集。但对一门新的文字进行检测与识别研究时，由于一些原因，我们往往很难获得符合要求的手写数据集，这个时候就需要我们自己动手去采集手写数据。本文针对手写字符的采集，使用LaTex配合Python的Jinja2模板引擎构建了一个简单的手写字符采集表。
@@ -15,11 +18,11 @@ tags:
 
 对于采集表，一般情况下，我们需要一个表头来存放采集表的相关信息（页码、标题、备注等等）和一个书写区域来存放参考字符和书写者的所书写的字符。同时为了使得表格能够被程序自动化处理，我们往往需要为每一页设计一个标识区域，该区域存放采集表当前页的标识信息（版本信息与页码），为此，我们将标识信息以二维码的形式放置在表头的左侧。对于汉字或其他相对比较复杂的亚洲字符而言，单元格的大小通常应当大于1cm，推荐的值是1.3cm-1.5cm。单元格个小于1cm时，书写体验较差，复杂的字符将有可能溢出单元格，而大于1.5cm的单元格又会造成纸张的浪费。
 
-![handwritten collection table draft](/assets/pic/handwritten-collection-table-draft.jpg)
+![handwritten collection table draft:hwct-draft](/assets/pic/handwritten-collection-table-draft.jpg)
 
 我们以A4纸为底稿，将单元格的宽度设为1 (cm)，整个书写区域的大小（HxW）为18x14，实际共能采集9x14=126个字符。将表头的高度设置为1.5，二维码的高度为表头高度的0.9，即1.275。最后再将整个采集表放大1.34倍。一个完整的采集表页面如下图所示。
 
-![handwritten collection table](/assets/pic/handwritten-collection-table-ready.jpg)
+![handwritten collection table:hwct-sample](/assets/pic/handwritten-collection-table-ready.jpg)
 
 # Tex模板
 
