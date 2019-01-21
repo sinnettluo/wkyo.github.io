@@ -14,7 +14,7 @@ layout: page
     <ul>
         {%- for tag in tags -%}
         <li class="post-tag">
-            <a href="#post-tag-{{ tag.first | replace: ' ', '-' }}">{{ tag.first | capitalize }}</a>
+            <a href="#post-tag-{{ tag.first | replace: ' ', '-' }}">{{ tag.first }}</a>
             <span>{{ tag.last | size }}</span>
         </li>
         {%- endfor -%}
@@ -25,7 +25,7 @@ layout: page
 {%- if tag.last.size > 0 -%}
 <div class="tag-posts">
     <div>
-        <span class="post-tag">{{ tag.first | capitalize }}</span>
+        <span class="post-tag">{{ tag.first | upcase }}</span>
     </div>
     <ul>
         {%- for post in tag.last -%}
