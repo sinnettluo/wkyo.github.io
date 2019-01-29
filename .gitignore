@@ -1,4 +1,5 @@
 _posts/*-draft.md
+.vscode/
 
 _site
 .sass-cache

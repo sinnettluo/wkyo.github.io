@@ -67,6 +67,7 @@
 
     margin-bottom: $spacing-unit;
     counter-reset: ($section-header)-($section-start);
+    word-break: break-all;
 
     >p {
         text-indent: 2em;
@@ -76,12 +77,19 @@
             border: rgba(0, 0, 0, 0.1) 1px solid;
             padding: 1em;
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
         }
 
         >img {
             margin: auto;
             display: block;
         }
+    }
+
+    blockquote {
+        font-size: inherit;
+        font-style: normal;
+        letter-spacing: inherit;
     }
 
     h1 {
@@ -169,4 +177,8 @@
 
 .section-seperator {
     margin: 2em 1em;
+}
+
+pre, code {
+    font-size:  0.9em;
 }
