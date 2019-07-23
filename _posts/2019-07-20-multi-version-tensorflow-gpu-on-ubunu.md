@@ -174,7 +174,7 @@ sudo rm /usr/local/cuda
 
 ### 安装 CUDA 10.1 & cuDNN 7.6
 
-CUDA 10 的run文件添加了一个installpath参数，可以少些一点代码。
+CUDA 10 的run文件添加了一个installpath参数，可以少写一点代码。
 ```
 sudo ./cuda_10.1.168_418.67_linux.run --silent --toolkit --samples --installpath=/usr/local/cuda_10.1.168
 ```
@@ -216,7 +216,7 @@ sudo apt-get install --no-install-recommends \
 安装TensorRT，需要提前安装libcudnn7。TensorRT可缩短在某些模型上进行推断的延迟并提高吞吐量。
 ```
 sudo apt-get update && \
-        && sudo apt-get install -y --no-install-recommends libnvinfer-dev=5.1.5-1+cuda10.0
+    sudo apt-get install -y --no-install-recommends libnvinfer-dev=5.1.5-1+cuda10.0
 ```
 
 # Bazel（编译TensorFlow需要）
