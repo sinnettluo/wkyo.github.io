@@ -357,8 +357,8 @@ export LD_LIBRARY_PATH=/usr/local/cuda_9.0.176/lib64:/usr/local/cuda_9.0.176/ext
 ```sh
 # 编译tensorflow
 bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
-# 生成python包
-./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+# 生成gpu版本的python包
+./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg --gpu
 ```
 
 
